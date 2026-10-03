@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Burger House — O sabor que merece sua fome</title>
+  <meta name="description" content="Burger House: hambúrgueres artesanais, combos, bebidas e acompanhamentos. Faça seu pedido online!" />
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- ============================================================
+       BIBLIOTECA 1: SWIPER.JS — CSS dos carrosséis de produtos
+       ============================================================ -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- ============================================================
+       BIBLIOTECA 2: AOS (Animate On Scroll) — CSS das animações
+       que acontecem durante a rolagem da página
+       ============================================================ -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+  <!-- Nosso CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================== HEADER / NAVBAR ===================== -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#inicio" class="logo">
+        <span class="logo-icon">🍔</span> Burger <span>House</span>
+      </a>
+
+      <!-- Menu desktop -->
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#inicio" class="nav-link">Início</a></li>
+        <li><a href="#cardapio" class="nav-link">Cardápio</a></li>
+        <li><a href="#bebidas" class="nav-link">Bebidas</a></li>
+        <li><a href="#promocoes" class="nav-link">Promoções</a></li>
+        <li><a href="#contato" class="nav-link">Contato</a></li>
+      </ul>
+
+      <!-- Botão do carrinho (com indicador de quantidade) -->
+      <div class="nav-actions">
+        <button class="cart-btn" id="openCartBtn" aria-label="Abrir pedido">
+          🛒
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+        <!-- Botão hambúrguer (menu mobile) -->
+        <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===================== HERO / INÍCIO ===================== -->
+  <section class="hero" id="inicio">
+    <div class="hero-content container">
+      <div class="hero-text" data-aos="fade-right" data-aos-duration="1000">
+        <span class="hero-tag">🔥 Hambúrgueres artesanais</span>
+        <h1>O sabor que <span>merece</span> sua fome.</h1>
+        <p>
+          Pão brioche macio, blend 180g suculento, queijo derretendo e aquele
+          toque defumado que só a Burger House tem. Monte seu pedido e receba
+          quentinho, direto da chapa para a sua casa.
+        </p>
+        <div class="hero-buttons">
+          <a href="#cardapio" class="btn btn-primary">Ver Cardápio</a>
+          <a href="#promocoes" class="btn btn-outline">Ver Promoções</a>
+        </div>
+      </div>
+      <div class="hero-image" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="200">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=700&q=80" alt="Hambúrguer artesanal da Burger House" />
+        <div class="hero-float-card" data-aos="fade-up" data-aos-delay="600">
+          <strong>⭐ 4,9</strong>
+          <span>+12.000 pedidos entregues</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FILTROS DE PRODUTOS ===================== -->
+  <section class="filters container" data-aos="fade-up">
+    <button class="filter-btn active" data-target="cardapio">Hambúrgueres</button>
+    <button class="filter-btn" data-target="promocoes">Combos</button>
+    <button class="filter-btn" data-target="bebidas">Bebidas</button>
+    <button class="filter-btn" data-target="acompanhamentos">Acompanhamentos</button>
+  </section>
+
+  <!-- ===================== CARDÁPIO / HAMBÚRGUERES =====================
+       Os cards são gerados pelo JavaScript dentro do Swiper -->
+  <section class="section" id="cardapio">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Cardápio</span>
+        <h2>Nossos Hambúrgueres</h2>
+        <p>Arraste para o lado e descubra o seu favorito. Clique no card para ver os detalhes.</p>
+      </div>
+    </div>
+    <!-- Swiper.js: carrossel de hambúrgueres (arrastar com mouse ou toque) -->
+    <div class="swiper burgerSwiper" data-aos="fade-up" data-aos-delay="150">
+      <div class="swiper-wrapper" id="burgerWrapper"><!-- cards via JS --></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </section>
+
+  <!-- ===================== BEBIDAS ===================== -->
+  <section class="section section-dark" id="bebidas">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Bebidas</span>
+        <h2>Refrescantes de verdade</h2>
+        <p>Arraste para os lados e escolha a sua. Clique em “Escolher” para adicionar ao pedido.</p>
+      </div>
+    </div>
+    <!-- Swiper.js: carrossel de bebidas -->
+    <div class="swiper drinkSwiper" data-aos="fade-up" data-aos-delay="150">
+      <div class="swiper-wrapper" id="drinkWrapper"><!-- cards via JS --></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </section>
+
+  <!-- ===================== PROMOÇÕES ===================== -->
+  <section class="section" id="promocoes">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Promoções</span>
+        <h2>Combos que valem muito a pena</h2>
+      </div>
+      <div class="promo-grid" id="promoGrid"><!-- combos via JS --></div>
+    </div>
+  </section>
+
+  <!-- ===================== ACOMPANHAMENTOS ===================== -->
+  <section class="section section-dark" id="acompanhamentos">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Acompanhamentos</span>
+        <h2>Batatas e porções</h2>
+      </div>
+      <div class="sides-grid" id="sidesGrid"><!-- cards via JS --></div>
+    </div>
+  </section>
+
+  <!-- ===================== TECNOLOGIAS (para a apresentação) ===================== -->
+  <section class="section tech" id="tecnologias">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Tecnologias utilizadas</span>
+        <h2>As 3 bibliotecas JavaScript do site</h2>
+      </div>
+      <div class="tech-grid">
+        <div class="tech-card" data-aos="flip-left" data-aos-delay="0">
+          <div class="tech-icon">🔄</div>
+          <h3>Swiper.js</h3>
+          <p>Utilizado para criar os carrosséis interativos de produtos e bebidas, com arrasto por mouse ou toque e setas de navegação.</p>
+        </div>
+        <div class="tech-card" data-aos="flip-left" data-aos-delay="150">
+          <div class="tech-icon">📜</div>
+          <h3>AOS</h3>
+          <p>Utilizado para criar animações durante a rolagem da página: títulos, cards, promoções e seções aparecem com efeitos suaves.</p>
+        </div>
+        <div class="tech-card" data-aos="flip-left" data-aos-delay="300">
+          <div class="tech-icon">💬</div>
+          <h3>SweetAlert2</h3>
+          <p>Utilizado para criar alertas, confirmações e mensagens interativas, como “Produto adicionado ao pedido!” e a confirmação do pedido.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RODAPÉ ===================== -->
+  <footer class="footer" id="contato">
+    <div class="container footer-grid">
+      <div class="footer-col" data-aos="fade-right">
+        <a href="#inicio" class="logo"><span class="logo-icon">🍔</span> Burger <span>House</span></a>
+        <p>Hambúrgueres artesanais feitos com paixão, desde 2020. O sabor que merece sua fome.</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="WhatsApp">💬</a>
+        </div>
+      </div>
+      <div class="footer-col" data-aos="fade-up" data-aos-delay="100">
+        <h4>Endereço</h4>
+        <p>Av. Saborosa, 123 — Centro<br />São Paulo/SP — CEP 01000-000</p>
+      </div>
+      <div class="footer-col" data-aos="fade-up" data-aos-delay="200">
+        <h4>Horário de funcionamento</h4>
+        <p>Terça a Domingo<br />18h00 — 23h30</p>
+      </div>
+      <div class="footer-col" data-aos="fade-up" data-aos-delay="300">
+        <h4>Contato</h4>
+        <p>📞 (11) 91234-5678<br />✉️ contato@burgerhouse.com.br</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Burger House. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- ===================== CARRINHO LATERAL (PEDIDO) ===================== -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-sidebar" id="cartSidebar" aria-label="Seu pedido">
+    <div class="cart-header">
+      <h3>🛒 Seu pedido</h3>
+      <button class="cart-close" id="closeCartBtn" aria-label="Fechar pedido">✕</button>
+    </div>
+
+    <div class="cart-items" id="cartItems">
+      <!-- itens do pedido via JS -->
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-total-row">
+        <span>Total</span>
+        <strong id="cartTotal">R$ 0,00</strong>
+      </div>
+      <button class="btn btn-primary btn-block" id="checkoutBtn">Finalizar pedido</button>
+      <button class="btn btn-ghost btn-block" id="clearCartBtn">Limpar pedido</button>
+    </div>
+  </aside>
+
+  <!-- Botão voltar ao topo -->
+  <button class="back-top" id="backTopBtn" aria-label="Voltar ao topo">↑</button>
+
+  <!-- ============================================================
+       BIBLIOTECA 1: SWIPER.JS — JavaScript dos carrosséis
+       ============================================================ -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- ============================================================
+       BIBLIOTECA 2: AOS — JavaScript das animações de rolagem
+       ============================================================ -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- ============================================================
+       BIBLIOTECA 3: SWEETALERT2 — alertas e confirmações
+       ============================================================ -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!-- Nosso JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
